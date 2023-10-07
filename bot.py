@@ -71,8 +71,22 @@ async def generate(ctx, *, prompt=None):
         # Get the generated response from ChatGPT-3
         bot_response = new_prompt.choices[0].message["content"].strip()
 
-        # Print the bot's response
-        print("Bot's Response:", bot_response)
+        # Allow the user to edit the generated prompt
+        # Allow the user to edit the generated prompt
+        await ctx.send("Generated Prompt: " + bot_response)
+        await ctx.send("You can now edit the prompt. Type your edits or 'continue' to proceed.")
+
+        def check(message):
+            return message.author == ctx.author and message.channel == ctx.channel
+
+        try:
+            user_response = await bot.wait_for("message", timeout=60.0, check=check)
+        except asyncio.TimeoutError:
+            await ctx.send("Prompt editing timed out. Using the generated prompt.")
+        else:
+            if user_response.content.lower() != "continue":
+                # User provided edits
+                bot_response = user_response.content
 
         # Send the updated prompt back to the user
         await ctx.send("Updated Prompt: " + bot_response)
