@@ -7,10 +7,10 @@ from dataclasses import dataclass
 BOT_TOKEN = "Your_Bot_Token"
 OPENAI_API_KEY = "Your_OpenAI_API_Key"
 
-# Replace with the channel ID where you want the bot to operate
+# Replace with the channel ID with the desired channels ID Number
 CHANNEL_ID = # Enter your channel ID Number
 
-# Maximum session time in minutes for the bot to be active
+# Maximum time the bot can be active
 MAX_SESSION_TIME_MINUTES = 45
 
 # Context that will be used to generate AI Art, Change context to anything that you want
@@ -24,7 +24,7 @@ art_context = "A user will give you a prompt that contains a subject and could c
 # Create a Discord bot instance
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 
-# Define a data class to store session information
+# Define a data class to store the information from the session
 class Session:
     def __init__(self):
         self.context = []  # Initialize context as an empty list
@@ -37,7 +37,7 @@ session = Session()
 bot_context = [
     {"role": "system", "content": "Enter Your Bots Personality Here"}
 ]
-# Event handler for when the bot is ready
+# Event Handler for when bot is ready
 @bot.event
 async def on_ready():
     # Send a welcome message to the specified channel
@@ -47,21 +47,27 @@ async def on_ready():
 # Variable to track whether a command is in progress
 command_in_progress = False
 
+# Event Handler for when messages are sent
 @bot.event
 async def on_message(message):
+    
+    # Use the global variable
     global command_in_progress  # Use the global variable
-
+    
+    # Ignore messages from the bot itself
     if message.author == bot.user:
-        return  # Ignore messages from the bot itself
-
+        return  
+        
+    # If the message starts with a command prefix, execute the command
     if message.content.startswith('!'):
-        # If the message starts with a command prefix, execute the command
         await bot.process_commands(message)
-        command_in_progress = True  # Set command_in_progress to True
-        return  # Exit the event handler
-
+        
+        # Set command_in_progress to True
+        command_in_progress = True  
+        return  
+    # Ignore messages when a command is in progress
     if command_in_progress:
-        return  # Ignore messages when a command is in progress
+        return  
 
     # If the message is not a command, combine it with the bot's context and respond as before
     combined_messages = bot_context + [{"role": "user", "content": message.content}]
@@ -84,6 +90,7 @@ async def on_message(message):
 @bot.command()
 async def generate(ctx, *, prompt=None):
     try:
+        # User input validation
         if prompt is None:
             await ctx.send("Please provide a prompt for AI image generation.")
             return
@@ -140,6 +147,7 @@ async def generate(ctx, *, prompt=None):
 @bot.command()
 async def music(ctx, *, prompt=None):
     try:
+        # User input validation
         if prompt is None:
             await ctx.send("Please provide a prompt for the music command.")
             return
