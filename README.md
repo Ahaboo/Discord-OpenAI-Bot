@@ -13,3 +13,4 @@ I created the Discord-OpenAI-Bot from my love for AI and Discord. I wanted to br
 - Interact and enjoy the discord bot, context can be changed to change bots personality
 
 ### Demo
+![DiscordBot](https://github.com/Ahaboo/Discord-OpenAI-Bot/assets/97643309/02c73caf-f4d0-4f74-a309-17823d4c3b03)
