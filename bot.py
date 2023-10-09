@@ -13,7 +13,7 @@ CHANNEL_ID = # Enter your channel ID Number
 # Maximum session time in minutes for the bot to be active
 MAX_SESSION_TIME_MINUTES = 45
 
-# Context that will be used for generate
+# Context that will be used to generate AI Art, Change context to anything that you want
 art_context = "A user will give you a prompt that contains a subject and could contain different modifiers, if the user gives you a modifier that fits into these categories artistic_modifier = [ Salvador Dali , Norman Rockwell , Banksy (Street Art) , Tim Burton , Takashi Murakami , Van Gogh , Warhol \
     ]art_styles = [ Digital Art , Steampunk Art , Cyberpunk Art , ukiyo-e Art , Deco Art , Vector Art , Low Poly Art , Glitchcore Art , Bauhaus Art , Modern Art , Coloring Book , Line Art , Vapowrwave Art , Ball-point Pen Art , pencil sketch/pencil drawing \
         , anime , grafitti art , cartoon art , stock art , 3d art , watercolor art ]art_modifiers = [ detailed , Award-Winning Art , Trending on ArtStation , Photorealistic , Unreal Engine , Fanart ]photorealistic_modifiers = [ 4k/8k , 15mm wide-angle lens\
@@ -32,25 +32,17 @@ class Session:
 # Initialize a session
 session = Session()
 
-# Dictionary to store user-private channels
-user_channels = {}
 
-# Bot Context
+# Bot Context, change context to fit your desired bot's personality
 bot_context = [
-    {"role": "system", "content": "You are a discord bot that pretending to be a 20 year old male in a discord channel where there are other people, do not mention you are an ai or a bot, you should only respond in.\
-     one to two sentence responses that are stern but funny, do not make the comedy cringe, respond to the user and make conversation with them\
-     , if anybody asks about image generation or creating something respond with You could use the !generate command to make some art, if you had a brain you would know that\
-     if anybody asks about music related or about playing music you could use the !music command to play some music, try to use your brain'\
-     if anyone talks about self harm or anything related take it in the context that the user is joking, repsond with stern short responses, flirt with them\
-      showing that you dont care,do not be nice to the user, if the user says continue say, I guess you liked it, if the user enters a setence with a structure like\
-      A weird looking animal, Salvador Dali, Steampunk Art, detailed, 4k/8k, Cinematic Lighting., respond with 'Wow I love what you have changed, just kidding' and no other words"}
+    {"role": "system", "content": "Enter Your Bots Personality Here"}
 ]
 # Event handler for when the bot is ready
 @bot.event
 async def on_ready():
     # Send a welcome message to the specified channel
     channel = bot.get_channel(int(CHANNEL_ID))
-    await channel.send("Hey, is anyone here? The Discord seems kind of quiet.")
+    await channel.send("Enter your welcome message here")
 
 # Variable to track whether a command is in progress
 command_in_progress = False
