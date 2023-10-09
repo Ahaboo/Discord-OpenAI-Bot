@@ -14,4 +14,4 @@ I created the Discord-OpenAI-Bot from my love for AI and Discord. I wanted to br
 
 ### Demo
 
-![DiscordBot](https://github.com/Ahaboo/Discord-OpenAI-Bot/assets/97643309/02c73caf-f4d0-4f74-a309-17823d4c3b03){ width=50% }{ height=50% }
+![DiscordBot](https://github.com/Ahaboo/Discord-OpenAI-Bot/assets/97643309/02c73caf-f4d0-4f74-a309-17823d4c3b03)
