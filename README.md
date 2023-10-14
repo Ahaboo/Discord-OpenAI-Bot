@@ -4,7 +4,7 @@
 To  use the program I downloaded Python 3.11.5, Run `py -3 -m pip install -U discord.py`
 
 ### Idea
-I created the Discord-OpenAI-Bot from my love for AI and Discord. I wanted to bring together AI Image generation and AI language abilitys to create another person in a discord channel that could talk with you and generate images or give you song ideas. Think of it as a virtual assistant that can change its personality just by changing the context that ChatGPT3 recives.This bot is a beginning that can be built on to make a discord bot that is personalized to your discord server's needs and wants
+I created the Discord-OpenAI-Bot from my love for AI and Discord. I wanted to bring together AI Image generation and AI language abilitys to create another person in a discord channel that could talk with you and generate images or give you song ideas. Think of it as a virtual assistant that can change its personality just by changing the context that ChatGPT3 recives.This bot is a beginning that can be built on to make a discord bot that is personalized to your discord server's needs and wants. This can be downloaded and used as a frame for any discord server and has features that many popular discord bots have.
 
 
 ### Usage
